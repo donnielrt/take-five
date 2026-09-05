@@ -1,0 +1,162 @@
+:root {
+	--ink: #f4efe6;
+	--ink-dim: rgba(244, 239, 230, 0.55);
+	--gold: #e8c87a;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	margin: 0;
+	height: 100%;
+	background: #05060b;
+	overflow: hidden;
+	color: var(--ink);
+	font-family: "Avenir Next", "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+#stage {
+	position: fixed;
+	inset: 0;
+}
+
+#cv {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	display: block;
+	z-index: 1;
+}
+
+.chrome {
+	position: absolute;
+	inset: 0;
+	z-index: 3;
+	pointer-events: none; /* let clicks pass to stage, except controls */
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding: clamp(18px, 4vw, 56px);
+}
+
+.title-block h1 {
+	margin: 0;
+	font-family: Georgia, "Times New Roman", serif;
+	font-weight: 400;
+	letter-spacing: 0.42em;
+	text-indent: 0.42em; /* balance the trailing tracking */
+	font-size: clamp(30px, 6vw, 82px);
+	color: var(--ink);
+	text-shadow:
+		0 2px 30px rgba(0, 0, 0, 0.6),
+		0 0 40px rgba(120, 170, 220, 0.18);
+}
+
+.title-block .sub {
+	margin: 0.9em 0 0;
+	font-size: clamp(11px, 1.3vw, 15px);
+	letter-spacing: 0.24em;
+	text-transform: uppercase;
+	color: var(--ink-dim);
+}
+
+.act {
+	position: absolute;
+	left: clamp(18px, 4vw, 56px);
+	bottom: clamp(70px, 12vh, 120px);
+	font-family: Georgia, serif;
+	font-style: italic;
+	font-size: clamp(15px, 2.2vw, 26px);
+	letter-spacing: 0.08em;
+	color: var(--ink-dim);
+	transition: opacity 0.4s ease;
+}
+
+/* Big count number during the count-in */
+.count {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -58%);
+	font-family: Georgia, serif;
+	font-weight: 400;
+	font-size: clamp(120px, 30vw, 360px);
+	color: rgba(244, 239, 230, 0);
+	transition:
+		opacity 0.25s ease,
+		transform 0.25s ease;
+}
+.count.show {
+	color: rgba(244, 239, 230, 0.16);
+	text-shadow: 0 0 80px rgba(140, 190, 240, 0.25);
+}
+
+.controls {
+	align-self: flex-start;
+	pointer-events: auto;
+}
+#play {
+	appearance: none;
+	border: 1px solid rgba(244, 239, 230, 0.28);
+	background: rgba(10, 14, 24, 0.5);
+	color: var(--ink);
+	font-family: inherit;
+	letter-spacing: 0.16em;
+	text-transform: uppercase;
+	font-size: clamp(11px, 1.2vw, 14px);
+	padding: 13px 26px;
+	border-radius: 999px;
+	cursor: pointer;
+	backdrop-filter: blur(6px);
+	transition:
+		background 0.25s ease,
+		border-color 0.25s ease,
+		transform 0.15s ease;
+}
+#play:hover {
+	background: rgba(30, 40, 60, 0.7);
+	border-color: var(--gold);
+	transform: translateY(-1px);
+}
+#play.playing {
+	color: #0a0d16;
+	background: var(--gold);
+	border-color: var(--gold);
+}
+
+.hint {
+	margin: 12px 2px 0;
+	font-size: 11px;
+	letter-spacing: 0.1em;
+	color: rgba(244, 239, 230, 0.35);
+}
+
+.credit {
+	position: absolute;
+	right: clamp(18px, 4vw, 56px);
+	bottom: clamp(18px, 4vh, 40px);
+	font-size: 10px;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: rgba(244, 239, 230, 0.28);
+	max-width: 40%;
+	text-align: right;
+}
+
+/* Render / video mode: hide interactive chrome and controls */
+body.render .controls,
+body.render .hint,
+body.render .credit {
+	display: none;
+}
+body.render .count {
+	display: none;
+}
+body.still .controls,
+body.still .credit {
+	display: none;
+}

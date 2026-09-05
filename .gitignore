@@ -1,0 +1,7 @@
+# runtime / tooling — not part of the shareable site
+node_modules/
+.pi/
+.pi-lens/
+.pi-lens.json
+*.log
+.DS_Store

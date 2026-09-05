@@ -1,0 +1,15 @@
+{
+  "name": "take-five",
+  "version": "1.0.0",
+  "private": true,
+  "description": "FIVE — a real-time visual interpretation of Take Five",
+  "type": "commonjs",
+  "scripts": {
+    "shot": "node tools/shot.js",
+    "render": "bash render.sh"
+  },
+  "dependencies": {
+    "canvas": "^3.2.3",
+    "puppeteer-core": "^25.8.0"
+  }
+}
