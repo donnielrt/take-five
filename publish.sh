@@ -33,19 +33,26 @@ if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
   git commit -q -m "FIVE — original Take Five visual homage"
 fi
 
+# Detect the branch we're actually on (main or master) so Pages points at it.
+BRANCH="$(git rev-parse --abbrev-ref HEAD)"
+
 # Create + push (or push if the repo already exists).
 if git remote get-url origin >/dev/null 2>&1; then
   git add -A
   git commit -m "FIVE: update" || true
-  git push -u origin main
+  git push -u origin "$BRANCH"
 else
   gh repo create "$REPO" --public --source=. --remote=origin --push
 fi
 
-# Enable GitHub Pages (main branch, site root).
-gh api -X POST "repos/${GH_USER}/${REPO}/pages" \
-  -f "source[branch]=main" -f "source[path]=/" >/dev/null 2>&1 ||
-  echo "(GitHub Pages may already be enabled.)"
+# (Re)configure GitHub Pages to the current branch, site root.
+# DELETE first so an existing (possibly wrong-branch) config gets replaced.
+gh api -X DELETE "repos/${GH_USER}/${REPO}/pages" >/dev/null 2>&1 || true
+if ! gh api -X POST "repos/${GH_USER}/${REPO}/pages" \
+  -f "source[branch]=$BRANCH" -f "source[path]=/" >/dev/null 2>&1; then
+  echo "note: could not set Pages via API. Verify the branch at:"
+  echo "      https://github.com/${GH_USER}/${REPO}/settings/pages"
+fi
 
 echo
 echo "Published. Live in ~1 minute at:"
