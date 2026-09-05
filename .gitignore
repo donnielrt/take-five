@@ -5,4 +5,5 @@ node_modules/
 .pi-lens.json
 *.log
 .DS_Store
-_audit.html
+# local browser-audit / layout test stubs (not part of the site)
+_*.html
