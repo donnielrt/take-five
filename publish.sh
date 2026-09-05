@@ -27,7 +27,7 @@ GH_USER="$(gh api user --jq .login)"
 # Ensure we're in a git repo (initialize + commit if needed).
 if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
   git init -q
-  git config user.name  >/dev/null 2>&1 || git config user.name  "donnie"
+  git config user.name >/dev/null 2>&1 || git config user.name "donnie"
   git config user.email >/dev/null 2>&1 || git config user.email "donnie@local"
   git add -A
   git commit -q -m "FIVE — original Take Five visual homage"

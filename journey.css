@@ -351,6 +351,18 @@ main {
   color: var(--ink-dim);
   font-size: 13px;
 }
+.tri {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 6px 0 6px 10px;
+  border-color: transparent transparent transparent currentColor;
+  vertical-align: middle;
+}
+.tri.big {
+  border-width: 11px 0 11px 18px;
+}
 
 .explainer {
   margin-top: 40px;
@@ -381,15 +393,91 @@ main {
   border-bottom: 0;
 }
 .explainer li::before {
-  content: "◆";
+  content: "";
   position: absolute;
-  left: 0;
-  color: var(--gold);
-  font-size: 11px;
-  top: 13px;
+  left: 3px;
+  top: 15px;
+  width: 7px;
+  height: 7px;
+  background: var(--gold);
+  transform: rotate(45deg);
 }
 .explainer li strong {
   color: var(--blue-bright);
+}
+
+/* ---- embedded conversation log (progressive disclosure) -------------- */
+details.log {
+  margin-top: 40px;
+  background: var(--card);
+  border: 1px solid var(--card-brd);
+  border-radius: 14px;
+  padding: 22px 26px;
+}
+details.log summary {
+  cursor: pointer;
+  color: var(--blue);
+  font-size: 15px;
+  letter-spacing: 0.04em;
+  list-style: none;
+}
+details.log summary::-webkit-details-marker {
+  display: none;
+}
+.log-body {
+  margin-top: 20px;
+  max-width: 68ch;
+}
+.log-intro {
+  color: var(--ink-dim);
+  font-size: 15px;
+  margin: 0 0 20px;
+}
+.log-body h4 {
+  color: var(--ink);
+  font-weight: 600;
+  font-size: 15px;
+  margin: 24px 0 10px;
+  letter-spacing: 0.02em;
+}
+.log-body p {
+  margin: 0 0 14px;
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.7;
+}
+.log-body code {
+  font-family: var(--mono);
+  font-size: 0.9em;
+  background: rgba(140, 175, 235, 0.1);
+  padding: 1px 5px;
+  border-radius: 4px;
+}
+.log-body .who {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 999px;
+  margin-right: 8px;
+  vertical-align: 1px;
+}
+.log-body .who.you {
+  color: var(--gold-bright);
+  background: rgba(242, 180, 92, 0.14);
+}
+.log-body .who.me {
+  color: var(--blue-bright);
+  background: rgba(143, 192, 255, 0.14);
+}
+.log-dl {
+  margin: 22px 0 0;
+  font-size: 13px;
+}
+.log-dl a {
+  color: var(--blue);
 }
 details.wall {
   margin-top: 22px;
@@ -404,11 +492,22 @@ details.wall summary {
 details.wall summary::-webkit-details-marker {
   display: none;
 }
-details.wall summary::before {
-  content: "＋ ";
+details.wall summary::before,
+details.log summary::before {
+  content: "";
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-right: 10px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 0.2s ease;
+  vertical-align: middle;
 }
-details.wall[open] summary::before {
-  content: "－ ";
+details.wall[open] summary::before,
+details.log[open] summary::before {
+  transform: rotate(225deg);
 }
 details.wall .wall-body {
   margin-top: 16px;

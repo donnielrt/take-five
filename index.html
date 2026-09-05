@@ -86,7 +86,7 @@
                 href="https://open.spotify.com/track/1YQWosTIljIvxAgHWTp7KP"
                 target="_blank"
                 rel="noopener"
-                >Open in Spotify &nearr;</a
+                >Open in Spotify &rarr;</a
               >
             </div>
 
@@ -102,8 +102,8 @@
                   src="https://i.ytimg.com/vi/ryA6eHZNnXY/hqdefault.jpg"
                   alt="Take Five on YouTube"
                 />
-                <span class="yt-play" aria-hidden="true">&#9654;</span>
-                <span class="yt-label">Watch on YouTube &nearr;</span>
+                <span class="yt-play" aria-hidden="true"><span class="tri big"></span></span>
+                <span class="yt-label">Watch on YouTube &rarr;</span>
               </a>
               <p class="src-note">
                 Dave Brubeck Quartet &mdash; the recording.
@@ -142,7 +142,7 @@
 
           <div class="interp-actions">
             <a class="btn primary" href="experience.html"
-              >&#9654;&nbsp; Play it live</a
+              ><span class="tri" style="margin-right: 9px"></span>Play it live</a
             >
             <span class="btn-note"
               >real-time, synthesized in your browser on your graphics
@@ -153,7 +153,7 @@
               href="out_audio.wav"
               download
               style="color: var(--blue); text-decoration: none"
-              >&#11015;&nbsp; download the track (WAV)</a
+              >download the track (WAV) &darr;</a
             >
           </div>
 
@@ -358,17 +358,126 @@
             >
           </div>
 
-          <div class="lognote">
-            <h3>The raw log</h3>
-            <p>
-              The conversation that shaped this &mdash; the back-and-forth, the
-              pivots, the &ldquo;why not just play the real song&rdquo; &mdash;
-              is available as a cleaned transcript:
+          <details class="log">
+            <summary>The raw log &mdash; how the conversation went</summary>
+            <div class="log-body">
+              <p class="log-intro">
+                A cleaned record of the working conversation that produced FIVE
+                &mdash; the real back-and-forth, not a polished retelling
+                (harness/system noise stripped).
+              </p>
+
+              <h4>1 &mdash; The brief</h4>
+              <p>
+                <span class="who you">You</span>Make an original, genuinely
+                enthralling visual interpretation of Take Five. Use the
+                available hardware and tools. It should be an original homage,
+                not a reproduction of the recording.
+              </p>
+              <p>
+                <span class="who me">Me</span>I set up the project and started
+                from one question: the whole identity of Take Five is its 5/4
+                meter &mdash; five beats where you expect four. So the concept
+                was <em>Five</em>: make the meter <strong>visible</strong> as
+                five-fold radial symmetry, and let everything else orbit that
+                idea.
+              </p>
+
+              <h4>2 &mdash; The build</h4>
+              <p>
+                <span class="who me">Me</span>A deterministic
+                <strong>score</strong> (the actual composition: 5/4, key of Bb,
+                an original syncopated head, the minor&ndash;major-7 changes, a
+                walking bass, a lyrical sax solo). A <strong>Canvas-2D
+                renderer</strong> as a pure function of time (the mandala, the
+                spiral, the palette, the smoke). <strong>Audio synthesized two
+                ways</strong> from the same score (Web Audio in the browser,
+                pure-Node for the video). A <strong>render pipeline</strong>
+                (node-canvas &rarr; ffmpeg). Constraint: no GPU and no working
+                headless browser in the sandbox, so the video rendered on the
+                CPU &mdash; which guaranteed it is pixel-identical to the live
+                browser.
+              </p>
+
+              <h4>3 &mdash; "What does it all mean?"</h4>
+              <p>
+                <span class="who you">You</span>As a total music noob, I'm not
+                sure how to interpret this. Walk me through what the colors,
+                lines, etc. mean. Also &mdash; are we being held back by
+                copyright? Could we not just play the real song via Spotify?
+              </p>
+              <p>
+                <span class="who me">Me</span>The mandala counts 1&rarr;5 every
+                bar (the 5/4 made visible); the spiral is the sax (higher pitch
+                = farther out); color is harmony (blue = home, gold = the
+                dominant's tension, back to blue on resolve); inner rings are
+                the walking bass; the glow is the beat; the smoke is the
+                lounge. On copyright: the 1959 recording and notation are
+                protected, so I made an original homage. And Spotify's audio is
+                DRM-licensed for personal listening &mdash; no clean way to pull
+                the master into our video, and it wouldn't sync to our
+                arrangement anyway. So: <strong>we invent and are inspired; we
+                don't copy.</strong>
+              </p>
+
+              <h4>4 &mdash; Invent, don't copy</h4>
+              <p>
+                <span class="who you">You</span>Please don't take this as
+                criticism &mdash; use your creative imagination. We'll honor the
+                licensing concerns. We want to invent and be inspired, not copy.
+                Preserve the original (what we have) with an explainer from you,
+                as its creator.
+              </p>
+              <p>
+                <span class="who me">Me</span>I wrote <code>EXPLAINER.md</code>
+                &mdash; the wall label: an artist statement, a how-to-read
+                guide, the arc of the piece, and a technical colophon.
+              </p>
+
+              <h4>5 &mdash; Embellish, or hang it up?</h4>
+              <p>
+                <span class="who you">You</span>Should we embellish the
+                production with more splashes and paint, or hang this one up on
+                the wall?
+              </p>
+              <p>
+                <span class="who me">Me</span>I'd hang it up &mdash; its
+                strength is clarity. But two finishing touches: (1) frame it as
+                an exhibit (title in, fade to black), and (2) give it a climax
+                &mdash; the whole five-fold star igniting on the final note.
+              </p>
+              <p>
+                <span class="who you">You</span>(A) &mdash; hang it up with
+                framing + climax. Take it away.
+              </p>
+              <p>
+                <span class="who me">Me</span>Added the title-in, the igniting
+                climax, and the fade-to-black; re-rendered the video and
+                verified all three beats in the encoded file.
+              </p>
+
+              <h4>6 &mdash; Sharing it</h4>
+              <p>
+                <span class="who you">You</span>I want to make this shareable
+                with a musician friend. A simple link where he can experience
+                the whole journey &mdash; starting with Spotify/YouTube links to
+                the original so he can sit with it first, then enter your
+                interpretation, and see your thought process through the raw
+                logs.
+              </p>
+              <p>
+                <span class="who me">Me</span>This page. Act I the original
+                (embedded players), Act II the interpretation (video + live +
+                explainer), Act III the process (this log, the decisions, and
+                the raw source).
+              </p>
+            </div>
+            <p class="log-dl">
               <a href="process/conversation-log.md" download
-                >conversation-log.md</a
-              >.
+                >download the raw .md</a
+              >
             </p>
-          </div>
+          </details>
         </div>
       </section>
 
