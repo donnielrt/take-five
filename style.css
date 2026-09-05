@@ -79,10 +79,18 @@ body {
 	color: var(--ink-dim);
 }
 
-.act {
+/* bottom-left cluster: act label hugs the controls so they never overlap */
+.bl {
 	position: absolute;
 	left: clamp(18px, 4vw, 56px);
-	bottom: clamp(70px, 12vh, 120px);
+	bottom: clamp(18px, 4vw, 56px);
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 16px;
+	pointer-events: none;
+}
+.act {
 	font-family: Georgia, serif;
 	font-style: italic;
 	font-size: clamp(15px, 2.2vw, 26px);
