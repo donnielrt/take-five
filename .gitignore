@@ -5,3 +5,4 @@ node_modules/
 .pi-lens.json
 *.log
 .DS_Store
+_audit.html

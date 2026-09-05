@@ -492,18 +492,23 @@ details.wall summary {
 details.wall summary::-webkit-details-marker {
   display: none;
 }
+details.wall summary,
+details.log summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
 details.wall summary::before,
 details.log summary::before {
   content: "";
-  display: inline-block;
-  width: 7px;
-  height: 7px;
-  margin-right: 10px;
+  width: 8px;
+  height: 8px;
+  flex: none;
+  margin-bottom: 4px; /* optically center the down-chevron (V sits in the box's lower half) */
   border-right: 2px solid currentColor;
   border-bottom: 2px solid currentColor;
   transform: rotate(45deg);
   transition: transform 0.2s ease;
-  vertical-align: middle;
 }
 details.wall[open] summary::before,
 details.log[open] summary::before {
