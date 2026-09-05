@@ -11,7 +11,23 @@
       name="description"
       content="FIVE: an original, five-fold visual interpretation of Dave Brubeck & Paul Desmond's Take Five. Listen to the original first, then step into the interpretation and see how it was made."
     />
+    <link rel="canonical" href="https://donnielrt.github.io/take-five/" />
     <link rel="stylesheet" href="journey.css" />
+
+    <!-- Open Graph / social preview -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://donnielrt.github.io/take-five/" />
+    <meta property="og:title" content="FIVE — a five-fold interpretation of Take Five" />
+    <meta property="og:description" content="An original, real-time visual interpretation of Dave Brubeck & Paul Desmond's Take Five. Sit with the original first, then step into the piece — and see how it was made." />
+    <meta property="og:image" content="https://donnielrt.github.io/take-five/poster.jpg" />
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="720" />
+    <meta property="og:image:alt" content="FIVE — a five-armed mandala counting 5/4 time, in blue and gold" />
+    <meta property="og:site_name" content="FIVE" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="FIVE — a five-fold interpretation of Take Five" />
+    <meta name="twitter:description" content="An original, real-time visual interpretation of Take Five. Sit with the original, then step into the piece." />
+    <meta name="twitter:image" content="https://donnielrt.github.io/take-five/poster.jpg" />
   </head>
   <body>
     <main>
@@ -102,7 +118,9 @@
                   src="https://i.ytimg.com/vi/ryA6eHZNnXY/hqdefault.jpg"
                   alt="Take Five on YouTube"
                 />
-                <span class="yt-play" aria-hidden="true"><span class="tri big"></span></span>
+                <span class="yt-play" aria-hidden="true"
+                  ><span class="tri big"></span
+                ></span>
                 <span class="yt-label">Watch on YouTube &rarr;</span>
               </a>
               <p class="src-note">
@@ -142,7 +160,8 @@
 
           <div class="interp-actions">
             <a class="btn primary" href="experience.html"
-              ><span class="tri" style="margin-right: 9px"></span>Play it live</a
+              ><span class="tri" style="margin-right: 9px"></span>Play it
+              live</a
             >
             <span class="btn-note"
               >real-time, synthesized in your browser on your graphics
@@ -388,11 +407,12 @@
                 <span class="who me">Me</span>A deterministic
                 <strong>score</strong> (the actual composition: 5/4, key of Bb,
                 an original syncopated head, the minor&ndash;major-7 changes, a
-                walking bass, a lyrical sax solo). A <strong>Canvas-2D
-                renderer</strong> as a pure function of time (the mandala, the
-                spiral, the palette, the smoke). <strong>Audio synthesized two
-                ways</strong> from the same score (Web Audio in the browser,
-                pure-Node for the video). A <strong>render pipeline</strong>
+                walking bass, a lyrical sax solo). A
+                <strong>Canvas-2D renderer</strong> as a pure function of time
+                (the mandala, the spiral, the palette, the smoke).
+                <strong>Audio synthesized two ways</strong> from the same score
+                (Web Audio in the browser, pure-Node for the video). A
+                <strong>render pipeline</strong>
                 (node-canvas &rarr; ffmpeg). Constraint: no GPU and no working
                 headless browser in the sandbox, so the video rendered on the
                 CPU &mdash; which guaranteed it is pixel-identical to the live
@@ -411,13 +431,12 @@
                 bar (the 5/4 made visible); the spiral is the sax (higher pitch
                 = farther out); color is harmony (blue = home, gold = the
                 dominant's tension, back to blue on resolve); inner rings are
-                the walking bass; the glow is the beat; the smoke is the
-                lounge. On copyright: the 1959 recording and notation are
-                protected, so I made an original homage. And Spotify's audio is
-                DRM-licensed for personal listening &mdash; no clean way to pull
-                the master into our video, and it wouldn't sync to our
-                arrangement anyway. So: <strong>we invent and are inspired; we
-                don't copy.</strong>
+                the walking bass; the glow is the beat; the smoke is the lounge.
+                On copyright: the 1959 recording and notation are protected, so
+                I made an original homage. And Spotify's audio is DRM-licensed
+                for personal listening &mdash; no clean way to pull the master
+                into our video, and it wouldn't sync to our arrangement anyway.
+                So: <strong>we invent and are inspired; we don't copy.</strong>
               </p>
 
               <h4>4 &mdash; Invent, don't copy</h4>
