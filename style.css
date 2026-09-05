@@ -43,6 +43,21 @@ body {
 	padding: clamp(18px, 4vw, 56px);
 }
 
+.back {
+  pointer-events: auto;
+  display: inline-block;
+  margin-bottom: clamp(14px, 2.5vh, 30px);
+  color: var(--ink-dim);
+  text-decoration: none;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+}
+.back:hover {
+  color: var(--gold);
+}
+
 .title-block h1 {
 	margin: 0;
 	font-family: Georgia, "Times New Roman", serif;
